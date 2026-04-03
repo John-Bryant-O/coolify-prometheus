@@ -1,11 +1,9 @@
 services:
   prometheus:
-    image: prom/prometheus:latest
+    build: .
     container_name: prometheus
     ports:
       - "9090:9090"
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     restart: unless-stopped
     networks:
       - coolify
