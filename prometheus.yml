@@ -17,6 +17,4 @@ scrape_configs:
     static_configs:
       - targets: ['deye-mcp.dibeji.ai']
     http_headers:
-      headers:
-        - name: X-API-Key
-          values: ["${DEYE_API_KEY}"]
+      X-API-Key: ["${DEYE_API_KEY}"]
