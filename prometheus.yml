@@ -12,6 +12,9 @@ scrape_configs:
     static_configs:
       - targets: ['prometheus:9090']
 
-  - job_name: 'payment-engine'
+  - job_name: 'deye-mcp'
+    scheme: https
+    authorization:
+      credentials: ${DEYE_API_KEY}
     static_configs:
-      - targets: ['a09c116b8d62:8080']
+      - targets: ['deye-mcp.dibeji.ai']
