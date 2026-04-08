@@ -20,3 +20,30 @@ scrape_configs:
       X-API-Key:
         values:
           - ${DEYE_API_KEY}
+
+  - job_name: 'dt-backend'
+    scheme: https
+    static_configs:
+      - targets: ['api.dibeji.ai']
+    http_headers:
+      X-API-Key:
+        values:
+          - ${DT_BACKEND_API_KEY}
+
+  - job_name: 'dt-intel'
+    scheme: https
+    static_configs:
+      - targets: ['intel.dibeji.ai']
+    http_headers:
+      X-API-Key:
+        values:
+          - ${INTEL_API_KEY}
+
+  - job_name: 'dt-boq'
+    scheme: https
+    static_configs:
+      - targets: ['boq.dibeji.ai']
+    http_headers:
+      X-API-Key:
+        values:
+          - ${DT_BOQ_API_KEY}
