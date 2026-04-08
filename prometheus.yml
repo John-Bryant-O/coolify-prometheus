@@ -14,6 +14,9 @@ scrape_configs:
 
   - job_name: 'deye-mcp'
     scheme: https
-    authorization:
-      type: "X-API-Key"
-      credentials: ${DEYE_API_KEY}
+    static_configs:
+      - targets: ['deye-mcp.dibeji.ai']
+    http_headers:
+      headers:
+        - name: X-API-Key
+          values: ["${DEYE_API_KEY}"]
