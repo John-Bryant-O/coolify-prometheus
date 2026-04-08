@@ -1,5 +1,6 @@
 #!/bin/sh
-envsubst '${GRAFANA_CLOUD_TOKEN} ${DEYE_API_KEY}' < /etc/prometheus/prometheus.yml > /etc/prometheus/prometheus_final.yml
+sed -i "s|\${GRAFANA_CLOUD_TOKEN}|${GRAFANA_CLOUD_TOKEN}|g" /etc/prometheus/prometheus.yml
+sed -i "s|\${DEYE_API_KEY}|${DEYE_API_KEY}|g" /etc/prometheus/prometheus.yml
 /bin/prometheus \
-  --config.file=/etc/prometheus/prometheus_final.yml \
+  --config.file=/etc/prometheus/prometheus.yml \
   --storage.tsdb.path=/prometheus
