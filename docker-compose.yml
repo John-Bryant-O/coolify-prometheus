@@ -15,6 +15,7 @@ services:
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/promtail-positions.yaml:/tmp/positions.yaml
     command: -config.file=/etc/promtail/config.yml -config.expand-env=true
     environment:
       - GRAFANA_CLOUD_API_KEY=${GRAFANA_CLOUD_API_KEY}

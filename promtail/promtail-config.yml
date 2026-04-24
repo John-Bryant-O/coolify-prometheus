@@ -18,7 +18,7 @@ scrape_configs:
         refresh_interval: 5s
     relabel_configs:
       - source_labels: ['__meta_docker_container_name']
-        regex: '/.*(api|booker|followup-worker|scheduler-worker|whatsapp-worker|bridge|payment-engine|redis|fs1bm76tt6o4pyc51q1kwo1i).*'
+        regex: '/.*(coolify|postgres|redis|promtail).*'
         action: drop
       - source_labels: ['__meta_docker_container_name']
         regex: '/(.*)'
