@@ -20,6 +20,9 @@ scrape_configs:
       X-API-Key:
         values:
           - ${DEYE_API_KEY}
+    metric_relabel_configs:
+      - action: labeldrop
+        regex: path
 
   - job_name: 'dt-backend'
     scheme: https
@@ -29,6 +32,9 @@ scrape_configs:
       X-API-Key:
         values:
           - ${DT_BACKEND_API_KEY}
+    metric_relabel_configs:
+      - action: labeldrop
+        regex: path
 
   - job_name: 'dt-intel'
     scheme: https
@@ -38,6 +44,9 @@ scrape_configs:
       X-API-Key:
         values:
           - ${INTEL_API_KEY}
+    metric_relabel_configs:
+      - action: labeldrop
+        regex: path
 
   - job_name: 'dt-boq'
     scheme: https
@@ -47,3 +56,6 @@ scrape_configs:
       X-API-Key:
         values:
           - ${DT_BOQ_API_KEY}
+    metric_relabel_configs:
+      - action: labeldrop
+        regex: path
